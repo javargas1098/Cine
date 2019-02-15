@@ -29,12 +29,12 @@ public class CinemaFunction {
 	public CinemaFunction(Movie movie, String date) {
 		this.movie = movie;
 		this.date = date;
-		numSeats=0;
+		numSeats=7*12;
 		for (int i = 0; i < 7; i++) {
 			List<Boolean> row = new ArrayList<>(Arrays.asList(new Boolean[12]));
 			Collections.fill(row, Boolean.TRUE);
 			this.seats.add(row);
-			numSeats+=1;
+			
 		}
 	}
 
@@ -42,6 +42,7 @@ public class CinemaFunction {
 		if (seats.get(row).get(col).equals(true)) {
 			seats.get(row).set(col, Boolean.FALSE);
 			numSeats-=1;
+			
 		} else {
 			throw new CinemaException("Seat booked");
 		}

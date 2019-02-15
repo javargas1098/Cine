@@ -24,9 +24,9 @@ public class Main {
 		CinemaServices cs = ac.getBean(CinemaServices.class);
 
 		List<CinemaFunction> functions = new ArrayList<>();
-		Movie man = new Movie("Superman", "Action", 30);
-		Movie marvel = new Movie("Capitan marvel", "Action", 20);
-		Movie dragon = new Movie("Dragon 3", "Ninos", 25);
+		Movie man = new Movie("Superman", "Action");
+		Movie marvel = new Movie("Capitan marvel", "Action");
+		Movie dragon = new Movie("Dragon 3", "Ninos");
 		functions.add(new CinemaFunction(man, "2019-02-14 13:00"));
 		functions.add(new CinemaFunction(marvel, "2019-02-14 14:08"));
 		functions.add(new CinemaFunction(marvel, "2019-02-13 16:00"));
@@ -37,8 +37,8 @@ public class Main {
 		functions.add(new CinemaFunction(dragon, "2019-02-14 19:30"));
 
 		String cinName = new String("Cinepolis");
-		String movieGen = new String("Action");
-		String sillas = new String("25");
+		String movieGen = new String("Ninos");
+		int sillas = 72;
 		Cinema cinepolis = new Cinema(cinName, functions);
 
 		// Registrar
@@ -46,19 +46,21 @@ public class Main {
 		System.out.println("Cinepolis registrado");
 
 		// consultar
+		System.out.println();
 		System.out.println("Cine encontrado: " + cs.getCinemaByName(cinName).getName());
 
 		// encontrar
-
+		System.out.println();
 		for (CinemaFunction foundFunction : cs.getFunctionsbyCinemaAndDate(cinName, "2019-02-13 16:00")) {
 			System.out.println("Cinepolis fontanar, February 14, 2019 at 16:00");
 			System.out.println(foundFunction.getMovie().getName());
 		}
-
+		System.out.println();
 		for (CinemaFunction foundFunction : cs.getFunctionsbyCinemaAndDate(cinName, "2019-02-14 15:20")) {
 			System.out.println("Cinepolis fontanar, February 14, 2019 at 15:20");
 			System.out.println(foundFunction.getMovie().getName());
 		}
+		System.out.println();
 		for (CinemaFunction foundFunction : cs.getFunctionsbyCinemaAndDate(cinName, "2019-02-14 13:00")) {
 			System.out.println("Cinepolis fontanar, February 14, 2019 at 13:00");
 			System.out.println(foundFunction.getMovie().getName());
@@ -70,6 +72,7 @@ public class Main {
 		cs.buyTicket(3, 3, cinName, "2019-02-13 16:00", "Superman");
 
 		// por genero
+		System.out.println();
 		System.out.println("Cinepolis fontanar,  las peliculas con el genero Action son:");
 		for (CinemaFunction foundFunction : cs.getFuntionbyGen(cinName, movieGen)) {
 
@@ -77,11 +80,11 @@ public class Main {
 					.println(foundFunction.getMovie().getName() + " con su fecha y hora es " + foundFunction.getDate());
 		}
 		// por sillas
-		System.out.println("Cinepolis fontanar,  las peliculas con sillas mayor a 20");
-		for (CinemaFunction foundFunction : cs.getFuntionbyNumberofSeats(cinName, sillas)) {
+		System.out.println();
+		System.out.println("Cinepolis fontanar,  las peliculas con sillas 60");
+		for (CinemaFunction foundFunction : cs.getFuntionbyNumberofSeats(cinName, sillas, "2019-02-14 13:00")) {
 
-			System.out
-					.println(foundFunction.getMovie().getName() + " con  " + foundFunction.getDate());
+			System.out.println(foundFunction.getMovie().getName() + " con  " + foundFunction.getDate());
 		}
 	}
 

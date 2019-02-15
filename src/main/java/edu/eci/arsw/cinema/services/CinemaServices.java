@@ -59,9 +59,9 @@ public class CinemaServices {
          
     }
 
-	public List<CinemaFunction> getFuntionbyNumberofSeats(String cinName, String sillas) {
+	public List<CinemaFunction> getFuntionbyNumberofSeats(String cinName, int sillas,String date) {
 		// TODO Auto-generated method stub
-		return cps.getFunctionsbyCinemaAndDate(cinName, sillas);
+		return cps.getFunctionsbySeats(cinName, sillas,date);
 	}
 
 

@@ -68,6 +68,6 @@ public interface CinemaPersitence {
 
 	public List<CinemaFunction> getFunctionsbyGen(String cinema,String gen);
 
-	public List<CinemaFunction> getFunctionsbySeats(String cinName, String seats);
+	public List<CinemaFunction> getFunctionsbySeats(String cinName, int seats,String date);
 
 }

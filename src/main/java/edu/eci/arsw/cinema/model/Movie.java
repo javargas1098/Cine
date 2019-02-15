@@ -17,10 +17,9 @@ public class Movie {
 	public Movie() {
 	}
 
-	public Movie(String name, String gen, int seats) {
+	public Movie(String name, String gen) {
 		this.name = name;
 		this.gen = gen;
-		this.seats = seats;
 	}
 
 	public String getName() {

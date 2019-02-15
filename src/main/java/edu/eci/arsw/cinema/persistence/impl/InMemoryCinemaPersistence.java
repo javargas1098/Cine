@@ -33,8 +33,8 @@ public class InMemoryCinemaPersistence implements CinemaPersitence {
 		// load stub data
 		String functionDate = "2018-12-18 15:30";
 		List<CinemaFunction> functions = new ArrayList<>();
-		CinemaFunction funct1 = new CinemaFunction(new Movie("SuperHeroes Movie", "Action",30), functionDate);
-		CinemaFunction funct2 = new CinemaFunction(new Movie("The Night", "Horror",25), functionDate);
+		CinemaFunction funct1 = new CinemaFunction(new Movie("SuperHeroes Movie", "Action"), functionDate);
+		CinemaFunction funct2 = new CinemaFunction(new Movie("The Night", "Horror"), functionDate);
 		functions.add(funct1);
 		functions.add(funct2);
 		Cinema c = new Cinema("cinemaX", functions);
@@ -109,13 +109,14 @@ public class InMemoryCinemaPersistence implements CinemaPersitence {
 
 
 	@Override
-	public List<CinemaFunction> getFunctionsbySeats(String cinName, String seats) {
+	public List<CinemaFunction> getFunctionsbySeats(String cinName, int seats,String date) {
 		// TODO Auto-generated method stub
 		Cinema cine = cinemas.get(cinName);
 		List<CinemaFunction> fun = new ArrayList<>();
 		for (CinemaFunction funtion : cine.getFunctions()) {
-			System.out.println(funtion.getNumSeats());
-			if (funtion.getNumSeats()>=Integer.parseInt(seats)) {
+//			System.out.println(funtion.getNumSeats());
+//			System.out.println(seats);
+			if (funtion.getNumSeats()>=seats && funtion.getDate().equals(date)) {
 				fun.add(funtion);
 
 			}
