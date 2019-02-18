@@ -5,6 +5,7 @@
  */
 package edu.eci.arsw.cinema.services;
 
+import edu.eci.arsw.cinema.filter.CinemaFilter;
 import edu.eci.arsw.cinema.model.Cinema;
 import edu.eci.arsw.cinema.model.CinemaFunction;
 import edu.eci.arsw.cinema.persistence.CinemaException;
@@ -21,48 +22,49 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class CinemaServices {
-    @Autowired
-    CinemaPersitence cps;
-    
-    public void addNewCinema(Cinema c)throws CinemaPersistenceException{
-        cps.saveCinema(c);
-    }
-    
-    public Set<Cinema> getAllCinemas() throws CinemaPersistenceException {
-        return  cps.getAllCinemas();
-    }
-    
-    /**
-     * 
-     * @param name cinema's name
-     * @return the cinema of the given name created by the given author
-     * @throws CinemaException
-     */
-    public Cinema getCinemaByName(String name) throws CinemaException,CinemaPersistenceException{
-    		return cps.getCinema(name);
-        
-    }
-    
-    
-    public void buyTicket(int row, int col, String cinema, String date, String movieName) throws CinemaException{
-    	cps.buyTicket(row, col, cinema, date, movieName);
-         
-    }
-    public List<CinemaFunction> getFuntionbyGen(String cinema ,String gen) {
-    	return cps.getFunctionsbyGen(cinema,gen);
-         
-    }
-    
-    
-    public List<CinemaFunction> getFunctionsbyCinemaAndDate(String cinema, String date) {
-    	return cps.getFunctionsbyCinemaAndDate(cinema, date);
-         
-    }
+	@Autowired
+	CinemaPersitence cps=null;
 
-	public List<CinemaFunction> getFuntionbyNumberofSeats(String cinName, int sillas,String date) {
-		// TODO Auto-generated method stub
-		return cps.getFunctionsbySeats(cinName, sillas,date);
+	@Autowired
+	CinemaFilter cfs;
+
+	public void addNewCinema(Cinema c) throws CinemaPersistenceException {
+		cps.saveCinema(c);
 	}
 
+	public Set<Cinema> getAllCinemas() throws CinemaPersistenceException {
+		return cps.getAllCinemas();
+	}
+
+	/**
+	 * 
+	 * @param name cinema's name
+	 * @return the cinema of the given name created by the given author
+	 * @throws CinemaException
+	 */
+	public Cinema getCinemaByName(String name) throws CinemaException, CinemaPersistenceException {
+		return cps.getCinema(name);
+
+	}
+
+	public void buyTicket(int row, int col, String cinema, String date, String movieName) throws CinemaException {
+		cps.buyTicket(row, col, cinema, date, movieName);
+
+	}
+
+	public List<CinemaFunction> getFuntionbyGen(String cinema, String gen, String date)  throws CinemaException, CinemaPersistenceException {
+		return cfs.getFunctionsbyGen(cinema, gen, date, cps);
+
+	}
+
+	public List<CinemaFunction> getFunctionsbyCinemaAndDate(String cinema, String date) {
+		return cps.getFunctionsbyCinemaAndDate(cinema, date);
+
+	}
+
+	public List<CinemaFunction> getFuntionbyNumberofSeats(String cinName, int sillas, String date)  throws CinemaException, CinemaPersistenceException {
+		// TODO Auto-generated method stub
+		return cfs.getFunctionsbySeats(cinName, sillas, date, cps);
+	}
 
 }

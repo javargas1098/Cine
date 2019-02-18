@@ -37,7 +37,7 @@ public class Main {
 		functions.add(new CinemaFunction(dragon, "2019-02-14 19:30"));
 
 		String cinName = new String("Cinepolis");
-		String movieGen = new String("Ninos");
+		String movieGen = new String("Action");
 		int sillas = 72;
 		Cinema cinepolis = new Cinema(cinName, functions);
 
@@ -74,7 +74,7 @@ public class Main {
 		// por genero
 		System.out.println();
 		System.out.println("Cinepolis fontanar,  las peliculas con el genero Action son:");
-		for (CinemaFunction foundFunction : cs.getFuntionbyGen(cinName, movieGen)) {
+		for (CinemaFunction foundFunction : cs.getFuntionbyGen(cinName, movieGen,"2019-02-14 13:00")) {
 
 			System.out
 					.println(foundFunction.getMovie().getName() + " con su fecha y hora es " + foundFunction.getDate());

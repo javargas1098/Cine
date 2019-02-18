@@ -66,8 +66,6 @@ public interface CinemaPersitence {
 
 	public Set<Cinema> getAllCinemas() throws CinemaPersistenceException;
 
-	public List<CinemaFunction> getFunctionsbyGen(String cinema,String gen);
-
-	public List<CinemaFunction> getFunctionsbySeats(String cinName, int seats,String date);
+	
 
 }

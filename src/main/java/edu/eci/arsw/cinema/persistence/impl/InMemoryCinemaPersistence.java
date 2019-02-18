@@ -94,34 +94,6 @@ public class InMemoryCinemaPersistence implements CinemaPersitence {
 		return allCinemas;
 	}
 
-	@Override
-	public List<CinemaFunction> getFunctionsbyGen(String cinema,String gen) {
-		Cinema cine = cinemas.get(cinema);
-		List<CinemaFunction> fun = new ArrayList<>();
-		for (CinemaFunction funtion : cine.getFunctions()) {
-			if (funtion.getGen().equals(gen)) {
-				fun.add(funtion);
 
-			}
-		}
-		return fun;
-	}
-
-
-	@Override
-	public List<CinemaFunction> getFunctionsbySeats(String cinName, int seats,String date) {
-		// TODO Auto-generated method stub
-		Cinema cine = cinemas.get(cinName);
-		List<CinemaFunction> fun = new ArrayList<>();
-		for (CinemaFunction funtion : cine.getFunctions()) {
-//			System.out.println(funtion.getNumSeats());
-//			System.out.println(seats);
-			if (funtion.getNumSeats()>=seats && funtion.getDate().equals(date)) {
-				fun.add(funtion);
-
-			}
-		}
-		return fun;
-	}
 
 }
