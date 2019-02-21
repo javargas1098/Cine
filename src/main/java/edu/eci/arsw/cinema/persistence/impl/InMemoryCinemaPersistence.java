@@ -42,17 +42,19 @@ public class InMemoryCinemaPersistence implements CinemaPersitence {
 	}
 
 	@Override
-	public void buyTicket(int row, int col, String cinema, String date, String movieName) throws CinemaException {
+	public boolean buyTicket(int row, int col, String cinema, String date, String movieName) throws CinemaException {
 		Cinema cine = cinemas.get(cinema);
 		for (CinemaFunction funtion : cine.getFunctions()) {
 
 			if (funtion.getMovie().getName().equals(movieName) && funtion.getDate().equals(date)) {
 
 				funtion.buyTicket(row, col);
+				return true;
 
 			}
 
 		}
+		return false;
 
 	}
 

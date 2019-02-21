@@ -9,7 +9,10 @@ import edu.eci.arsw.cinema.persistence.FilterException;
 
 public interface CinemaFilter {
 
-	public List<CinemaFunction> getFunctionsbyGen(String cinema,String gen,String date,CinemaPersitence cps) throws CinemaPersistenceException,FilterException;
+	public List<CinemaFunction> getFunctionsbyGen(String cinema, String gen, String date, CinemaPersitence cps)
+			throws CinemaPersistenceException, FilterException;
 
-	public List<CinemaFunction> getFunctionsbySeats(String cinName, int seats,String date,CinemaPersitence cps) throws CinemaPersistenceException,FilterException;
+	public List<CinemaFunction> getFunctionsbySeats(String cinName, int seats, String date, CinemaPersitence cps)
+			throws CinemaPersistenceException, FilterException;
+
 }

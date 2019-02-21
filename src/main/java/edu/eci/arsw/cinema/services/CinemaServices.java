@@ -25,7 +25,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CinemaServices {
 	@Autowired
-	CinemaPersitence cps=null;
+	CinemaPersitence cps = null;
 
 	@Autowired
 	CinemaFilter cfs;
@@ -40,7 +40,8 @@ public class CinemaServices {
 
 	/**
 	 * 
-	 * @param name cinema's name
+	 * @param name
+	 *            cinema's name
 	 * @return the cinema of the given name created by the given author
 	 * @throws CinemaException
 	 */
@@ -54,7 +55,8 @@ public class CinemaServices {
 
 	}
 
-	public List<CinemaFunction> getFuntionbyGen(String cinema, String gen, String date)  throws CinemaException, CinemaPersistenceException,FilterException {
+	public List<CinemaFunction> getFuntionbyGen(String cinema, String gen, String date)
+			throws CinemaException, CinemaPersistenceException, FilterException {
 		return cfs.getFunctionsbyGen(cinema, gen, date, cps);
 
 	}
@@ -64,7 +66,8 @@ public class CinemaServices {
 
 	}
 
-	public List<CinemaFunction> getFuntionbyNumberofSeats(String cinName, int sillas, String date)  throws CinemaException, CinemaPersistenceException,FilterException {
+	public List<CinemaFunction> getFuntionbyNumberofSeats(String cinName, int sillas, String date)
+			throws CinemaException, CinemaPersistenceException, FilterException {
 		// TODO Auto-generated method stub
 		return cfs.getFunctionsbySeats(cinName, sillas, date, cps);
 	}

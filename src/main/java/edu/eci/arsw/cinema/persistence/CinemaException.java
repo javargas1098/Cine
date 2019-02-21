@@ -11,7 +11,12 @@ package edu.eci.arsw.cinema.persistence;
  */
 public class CinemaException extends Exception{
 
-    public CinemaException(String message) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public CinemaException(String message) {
         super(message);
     }
 

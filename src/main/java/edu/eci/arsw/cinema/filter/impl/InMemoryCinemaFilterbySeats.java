@@ -46,4 +46,6 @@ public class InMemoryCinemaFilterbySeats implements CinemaFilter {
 		throw new FilterException("no es valido este filtro");
 	}
 
+
+
 }

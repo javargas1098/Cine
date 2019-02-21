@@ -6,6 +6,7 @@ import edu.eci.arsw.cinema.model.CinemaFunction;
 import edu.eci.arsw.cinema.model.Movie;
 import edu.eci.arsw.cinema.persistence.CinemaException;
 import edu.eci.arsw.cinema.persistence.CinemaPersistenceException;
+import edu.eci.arsw.cinema.persistence.FilterException;
 import edu.eci.arsw.cinema.services.CinemaServices;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Main {
 
-	public static void main(String a[]) throws CinemaPersistenceException, CinemaException {
+	public static void main(String a[]) throws CinemaPersistenceException, CinemaException, FilterException {
 		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
 		CinemaServices cs = ac.getBean(CinemaServices.class);
 

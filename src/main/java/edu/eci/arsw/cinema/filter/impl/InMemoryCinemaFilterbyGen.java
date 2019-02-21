@@ -3,6 +3,7 @@ package edu.eci.arsw.cinema.filter.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
 
 import edu.eci.arsw.cinema.filter.CinemaFilter;
 import edu.eci.arsw.cinema.model.CinemaFunction;
@@ -10,7 +11,7 @@ import edu.eci.arsw.cinema.persistence.CinemaPersistenceException;
 import edu.eci.arsw.cinema.persistence.CinemaPersitence;
 import edu.eci.arsw.cinema.persistence.FilterException;
 
-//@Component("cfs")
+@Component("cfs")
 public class InMemoryCinemaFilterbyGen implements CinemaFilter {
 
 	@Override
@@ -34,5 +35,7 @@ public class InMemoryCinemaFilterbyGen implements CinemaFilter {
 		
 		throw new FilterException("no es valido este filtro");
 	}
+
+	
 
 }

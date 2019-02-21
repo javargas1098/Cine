@@ -33,7 +33,7 @@ public interface CinemaPersitence {
 	 *             if the seat is occupied, or any other low-level persistence error
 	 *             occurs.
 	 */
-	public void buyTicket(int row, int col, String cinema, String date, String movieName) throws CinemaException;
+	public boolean buyTicket(int row, int col, String cinema, String date, String movieName) throws CinemaException;
 
 	/**
 	 * 
