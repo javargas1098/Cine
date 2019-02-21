@@ -11,6 +11,8 @@ import edu.eci.arsw.cinema.model.CinemaFunction;
 import edu.eci.arsw.cinema.persistence.CinemaException;
 import edu.eci.arsw.cinema.persistence.CinemaPersistenceException;
 import edu.eci.arsw.cinema.persistence.CinemaPersitence;
+import edu.eci.arsw.cinema.persistence.FilterException;
+
 import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,7 +54,7 @@ public class CinemaServices {
 
 	}
 
-	public List<CinemaFunction> getFuntionbyGen(String cinema, String gen, String date)  throws CinemaException, CinemaPersistenceException {
+	public List<CinemaFunction> getFuntionbyGen(String cinema, String gen, String date)  throws CinemaException, CinemaPersistenceException,FilterException {
 		return cfs.getFunctionsbyGen(cinema, gen, date, cps);
 
 	}
@@ -62,7 +64,7 @@ public class CinemaServices {
 
 	}
 
-	public List<CinemaFunction> getFuntionbyNumberofSeats(String cinName, int sillas, String date)  throws CinemaException, CinemaPersistenceException {
+	public List<CinemaFunction> getFuntionbyNumberofSeats(String cinName, int sillas, String date)  throws CinemaException, CinemaPersistenceException,FilterException {
 		// TODO Auto-generated method stub
 		return cfs.getFunctionsbySeats(cinName, sillas, date, cps);
 	}
